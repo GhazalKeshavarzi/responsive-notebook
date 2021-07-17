@@ -1,6 +1,9 @@
 //variabels
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> dec23a1eafa90157f2fb38be526d140acba57083
 const divlist = document.querySelector('#divlist');
 
 
@@ -8,6 +11,7 @@ const divlist = document.querySelector('#divlist');
 
 
 //eventlisteners
+<<<<<<< HEAD
 
 
 eventListeners();
@@ -19,6 +23,11 @@ function eventListeners() {
     //show note from local storage on load
     document.addEventListener('DOMContentLoaded', showNoteFromLS);
 
+=======
+eventListeners();
+function eventListeners() {
+    document.querySelector('#form').addEventListener('submit',addNote);
+>>>>>>> dec23a1eafa90157f2fb38be526d140acba57083
 }
 
 
@@ -27,9 +36,12 @@ function eventListeners() {
 
 
 //functions
+<<<<<<< HEAD
 
 
 //................ add note to list........................
+=======
+>>>>>>> dec23a1eafa90157f2fb38be526d140acba57083
 function addNote(e) {
     e.preventDefault();
 
@@ -42,6 +54,7 @@ function addNote(e) {
 
     //add li to the div list
     divlist.appendChild(li);
+<<<<<<< HEAD
 
     //create remove button for li
     const removeBtn=document.createElement('a');
@@ -117,3 +130,6 @@ function addNoteToLS(note) {
     }
 
 
+=======
+}
+>>>>>>> dec23a1eafa90157f2fb38be526d140acba57083
