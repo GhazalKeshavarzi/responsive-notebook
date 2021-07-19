@@ -1,9 +1,4 @@
 //variabels
-<<<<<<< HEAD
-
-
-=======
->>>>>>> dec23a1eafa90157f2fb38be526d140acba57083
 const divlist = document.querySelector('#divlist');
 
 
@@ -11,8 +6,6 @@ const divlist = document.querySelector('#divlist');
 
 
 //eventlisteners
-<<<<<<< HEAD
-
 
 eventListeners();
 function eventListeners() {
@@ -23,25 +16,16 @@ function eventListeners() {
     //show note from local storage on load
     document.addEventListener('DOMContentLoaded', showNoteFromLS);
 
-=======
-eventListeners();
-function eventListeners() {
-    document.querySelector('#form').addEventListener('submit',addNote);
->>>>>>> dec23a1eafa90157f2fb38be526d140acba57083
 }
 
 
 
 
 
-
 //functions
-<<<<<<< HEAD
 
 
 //................ add note to list........................
-=======
->>>>>>> dec23a1eafa90157f2fb38be526d140acba57083
 function addNote(e) {
     e.preventDefault();
 
@@ -54,7 +38,6 @@ function addNote(e) {
 
     //add li to the div list
     divlist.appendChild(li);
-<<<<<<< HEAD
 
     //create remove button for li
     const removeBtn=document.createElement('a');
@@ -64,8 +47,11 @@ function addNote(e) {
     //add remove button to the li
     li.appendChild(removeBtn);
 
+    this.reset();
 
     addNoteToLS(note);
+
+    alert("your note saved succesfully")
 
 }
 
@@ -76,6 +62,8 @@ function deleteNote(e) {
     if (e.target.classList.contains('removebtn')) {
         e.target.parentElement.remove();   
     }
+    //also delete content from localstorage
+    deleteNoteFromLS(e.target.parentElement.textContent);
 }
 
 //................ add note to local storage........................
@@ -130,6 +118,20 @@ function addNoteToLS(note) {
     }
 
 
-=======
-}
->>>>>>> dec23a1eafa90157f2fb38be526d140acba57083
+
+//................ delete content from localstorage .......................  
+    function deleteNoteFromLS(notecontent) {
+        const notedelete=notecontent.substring(0,notecontent.length-1);
+        const noteLS=getNoteLS();
+        
+        noteLS.forEach(function(note,index) {
+            if (note === notedelete) {
+                noteLS.splice(index,1);
+            }
+        });
+        //set new array to localstorage
+        localStorage.setItem('notes',JSON.stringify(noteLS))
+
+        console.log(notedelete);
+        console.log(noteLS);
+    }
